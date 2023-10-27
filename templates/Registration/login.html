@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style> 
+   #mil {
+    padding-top:20px;
+    padding-left:300px;
+    padding-right:300px;
+    display:grid;
+    justify-content:center;
+   }
+   .log {
+    margin-left: auto;
+    margin-right: auto;
+    left:50%;
+   }
+   </style>
+   <div class="formulaire">
+<form method="post" action="{% url 'login' %}" class="form-control">
+    <i id="mil" class="fa-solid fa-right-to-bracket fa-flip fa-2xl"></i><h3 id="mil">Log In</h3><br>
+    <div class="container-fluid">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit", class="btn btn-outline-secondary">
+    </div>
+</form>
+</div>
+{% endblock%}

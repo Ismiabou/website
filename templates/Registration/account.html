@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+ {% load bootstrap_icons %} 
+ {% block content %} 
+ {% for f in pro %}
+ <style>
+
+ </style>
+<div>
+  <div id="box1"
+    class="shadow-lg p-3 mb-5 bg-body rounded w-25 p-3"
+    style="margin-left: 40px; margin-top: 20px"
+  >
+    <a href="{% url 'edit-profile'%}">{% bs_icon 'pencil-square' %}</a><br />
+    <img src="{{f.picture}}" alt="" class="card-img-top" /><br />
+    <div class="card-body">
+      <h5 class="card-title">{{f.first_name}} {{f.last_name}}</h5>
+      <br />
+      <label class="card-text">{% bs_icon 'envelope-at'%}{{f.email}}</label
+      ><br />
+      <label class="card-text">{% bs_icon 'person-circle'%}{{f.username}}</label
+      ><br />
+      {% if f.telphone is not None %} 
+      {% if f.whatsapp is not None %} 
+      {% if f.quartier is not None %}
+      <label class="card-text">{% bs_icon 'telephone' %}{{f.telphone}}</label
+      ><br />
+      <label class="card-text"> {% bs_icon 'whatsapp' %} {{f.whatsapp}}</label
+      ><br />
+      <label class="card-text">{% bs_icon 'geo-alt'%} {{f.quartier}}</label
+      ><br />
+      {% endif %}
+     {% endif %}
+     {% endif %}
+
+      <a href="{% url 'delete'%}"></a>
+    </div>
+  </div>
+  <div class="shadow-lg p-3 mb-5 bg-body rounded w-60 p-3" id="box2" >
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h3 class="display-3">Bio</h3>
+        <p class="lead">{{f.bio}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %} 
+{% endblock %}

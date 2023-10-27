@@ -1,0 +1,34 @@
+.btn{
+    background-color: white;
+    transition: background-color 0.5s;
+    border: 1px solid;
+    color : #adb5bd;
+}
+.btn:hover{
+    background-color: grey;
+    color : white;
+}
+
+li {
+background-color: white;
+transition: background-color 0.5s;
+border-radius:10px;
+padding-left:10px;
+padding-right:10px;
+border: 1px solid;
+color : #adb5bd;
+}
+
+li:hover {
+background-color: #adb5bd;
+color : white;
+}
+.nav-link active:hover {
+color : white;
+}
+#box{
+display:inline-block;
+}
+.Posts{
+float:left;
+}

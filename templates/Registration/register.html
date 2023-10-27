@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags%}
+{% block content %}
+<style> 
+#mil {
+    padding-top:20px;
+    padding-left:auto;
+    padding-right:auto;
+    display:grid;
+    justify-content:center;
+   }
+</style>
+<div class="formulaire">
+    <form class="form-control" method="post" action="" enctype="multipart/form-data">
+        <i id="mil" class="fa-regular fa-user fa-fade fa-2xl"></i><h3 id="mil">Register</h3>
+    <div class="container-fluid">
+    {% csrf_token %}
+    {{form|crispy }} 
+        {% for error in field.errors %}
+        <p style="color: blue;">{{error}}</p>
+        {% endfor %}
+    <br><input type="submit" class="btn btn-primary">
+    <p> Already have an account <a href="{% url 'login'%}">Sign In</a></p>
+</div>
+</form>
+</div>
+
+
+{% endblock %}

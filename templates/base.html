@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+  <link rel="stylesheet" href="{% static 'fontawesomefree/css/fontawesome.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'fontawesomefree/css/solid.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'fontawesomefree/css/brands.css' %}" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+{% load django_bootstrap5 %}
+    <title>Eguida</title>
+  
+<style>
+  .btn{
+    background-color: white;
+    transition: background-color 0.5s;
+    border: 1px solid;
+    color : #adb5bd;
+}
+.btn:hover{
+    background-color: grey;
+    color : white;
+}
+
+.nav-link active:hover {
+color : white;
+}
+.shadow-lg {
+display:grid !important;
+rowspan:1; !important;
+
+}
+.Posts{
+float:left;
+}
+#nav{
+  display:grid;
+  justify-content:center;
+
+}
+a {
+  font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand link-secondary" href="{% url 'home' %}"><i class="fa fa-home" id="nav"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav me-auto mb-2 mb-lg-0">
+              <a id="nav" style="margin-left:2px; margin-right:2px;font-weight:bold;" class="btn btn-outline-secondary btn-sm"aria-current="page" href="{% url 'home' %}">Accueil</a>
+             <a id="nav"style="margin-left:2px; margin-right:2px;font-weight:bold;" type="button"class="btn btn-outline-secondary btn-sm" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Produits et Service
+          </a></button>
+          <div class="dropdown-menu">
+            <a class="nav-link link-secondary dropdown-item" href="{% url 'maison'%}">Vente et Location de Maison</a>
+            <a class="nav-link link-secondary dropdown-item" href="{% url 'boutique'%}">Vente et Location de Boutique</a>
+            <a class="nav-link link-secondary dropdown-item" href="{% url 'terrain'%}">Location de Terrain</a>
+          </div>
+          <a id="nav" style="margin-left:2px; margin-right:2px;font-weight:bold;" class="btn btn-outline-secondary btn-sm"  href="#">Contactez-nous</a></button>
+          <a id="nav" style="margin-left:2px; margin-right:2px;font-weight:bold;" class="btn btn-outline-secondary btn-sm" aria-current="page" href="#">A propos de nous</a>
+        {% if user.is_authenticated %}
+                  <a id="nav" style="margin-left:2px; margin-right:2px;font-weight:bold;" class="btn btn-outline-secondary btn-sm" aria-current="page" href="{% url 'logout'%}">Se deconnecter</a>
+        {% else %}
+                  <a id="nav" style="margin-left:2px; margin-right:2px;font-weight:bold;" class="btn btn-outline-secondary btn-sm" aria-current="page" href="{% url 'register' %}">S'inscrire</a>
+        {% endif %}
+      </div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button id="nav" type="button"class="btn btn-outline-secondary btn-sm" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
